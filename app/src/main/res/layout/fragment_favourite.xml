@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/refresh"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:viewBindingIgnore="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:id="@+id/error_message"
+                android:fontFamily="@font/prozalibre"
+                android:textColor="@color/black"
+                android:text="Add some Favourite Meals"
+                android:layout_height="match_parent"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/favourite_recycler_view"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
