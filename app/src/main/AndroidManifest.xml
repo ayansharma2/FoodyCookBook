@@ -14,8 +14,10 @@
         android:name=".Application.FoodyCookApplicationClass"
         android:theme="@style/Theme.FoodyCookBook">
         <activity android:name=".MealActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomActivityThemeNoTitle"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -23,6 +23,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.ViewHolder> {
     Context context;
 
@@ -62,7 +64,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView image;
+        CircleImageView image;
         TextView title,type;
         CardView parent_layout;
         public ViewHolder(@NonNull @NotNull View itemView) {

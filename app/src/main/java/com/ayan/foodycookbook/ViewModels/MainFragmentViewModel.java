@@ -8,6 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.ayan.foodycookbook.LoadingComplete;
 import com.ayan.foodycookbook.Model.Meal;
 import com.ayan.foodycookbook.Model.MealsObject;
 import com.ayan.foodycookbook.RetrofitClient;
@@ -23,7 +24,7 @@ public class MainFragmentViewModel extends AndroidViewModel {
     private MutableLiveData<List<Meal>> randomMeal= new MutableLiveData();
     private MutableLiveData<List<Meal>> searchResults= new MutableLiveData();
     private MainFragmentViewModel instance=null;
-
+    public LoadingComplete loadingComplete;
     boolean randomDataLoaded=false;
     public MainFragmentViewModel(@NonNull @org.jetbrains.annotations.NotNull Application application) {
         super(application);
@@ -55,7 +56,11 @@ public class MainFragmentViewModel extends AndroidViewModel {
         return randomMeal;
     }
 
-    public LiveData<List<Meal>> getSearchResults(String key){
+    public LiveData<List<Meal>> getSearchResults(){
+        return searchResults;
+    }
+
+    public void searchKeyword(String key){
         new Thread(){
             @Override
             public void run() {
@@ -65,7 +70,7 @@ public class MainFragmentViewModel extends AndroidViewModel {
                 request.enqueue(new Callback<MealsObject>() {
                     @Override
                     public void onResponse(Call<MealsObject> call, Response<MealsObject> response) {
-                        searchResults.setValue(response.body().meals);
+                        searchResults.postValue(response.body().meals);
                     }
 
                     @Override
@@ -75,8 +80,6 @@ public class MainFragmentViewModel extends AndroidViewModel {
                 });
             }
         }.start();
-        return searchResults;
     }
-
 
 }

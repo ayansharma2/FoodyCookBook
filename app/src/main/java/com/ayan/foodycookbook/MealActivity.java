@@ -65,65 +65,65 @@ public class MealActivity extends AppCompatActivity {
         if(meal.strIngredient1!=null && meal.strIngredient1!=""){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient1);
+            name.setText(meal.strIngredient1+"-"+meal.strMeasure1);
             binding.ingredients.addView(view);
 
         }
         if(meal.strIngredient2!=null && meal.strIngredient2!=""){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient2);
+            name.setText(meal.strIngredient2+"-"+meal.strMeasure2);
             binding.ingredients.addView(view);
         }
         if(meal.strIngredient3!=null && !meal.strIngredient3.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient3);
+            name.setText(meal.strIngredient3+"-"+meal.strMeasure3);
             binding.ingredients.addView(view);
         }
         if(meal.strIngredient4!=null && !meal.strIngredient4.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient4);
+            name.setText(meal.strIngredient4+"-"+meal.strMeasure4);
             binding.ingredients.addView(view);
         }
         if(meal.strIngredient5!=null && !meal.strIngredient5.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient5);
+            name.setText(meal.strIngredient5+"-"+meal.strMeasure5);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient6!=null && !meal.strIngredient6.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient6);
+            name.setText(meal.strIngredient6+"-"+meal.strMeasure6);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient7!=null && !meal.strIngredient7.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient7);
+            name.setText(meal.strIngredient7+"-"+meal.strMeasure7);
             binding.ingredients.addView(view);
         }
         if(meal.strIngredient8!=null && !meal.strIngredient8.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient8);
+            name.setText(meal.strIngredient8+"-"+meal.strMeasure8);
             binding.ingredients.addView(view);
         }
         if(meal.strIngredient9!=null && !meal.strIngredient9.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient9);
+            name.setText(meal.strIngredient9+"-"+meal.strMeasure9);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient10!=null && !meal.strIngredient10.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient10);
+            name.setText(meal.strIngredient10+"-"+meal.strMeasure10);
             binding.ingredients.addView(view);
         }
 
@@ -131,49 +131,49 @@ public class MealActivity extends AppCompatActivity {
         if(meal.strIngredient11!=null && !meal.strIngredient11.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient11);
+            name.setText(meal.strIngredient11+"-"+meal.strMeasure11);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient12!=null && !meal.strIngredient12.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient12);
+            name.setText(meal.strIngredient12+"-"+meal.strMeasure12);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient13!=null && !meal.strIngredient13.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient13);
+            name.setText(meal.strIngredient13+"-"+meal.strMeasure13);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient14!=null && !meal.strIngredient14.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient14);
+            name.setText(meal.strIngredient14+"-"+meal.strMeasure14);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient15!=null && !meal.strIngredient15.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient15);
+            name.setText(meal.strIngredient15+"-"+meal.strMeasure15);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient16!=null && !meal.strIngredient16.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient16);
+            name.setText(meal.strIngredient16+"-"+meal.strMeasure16);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient17!=null && !meal.strIngredient17.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient17);
+            name.setText(meal.strIngredient17+"-"+meal.strMeasure17);
             binding.ingredients.addView(view);
         }
 
@@ -181,21 +181,21 @@ public class MealActivity extends AppCompatActivity {
         if(meal.strIngredient18!=null && !meal.strIngredient18.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient18);
+            name.setText(meal.strIngredient18+"-"+meal.strMeasure18);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient19!=null && !meal.strIngredient19.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient19);
+            name.setText(meal.strIngredient19+"-"+meal.strMeasure19);
             binding.ingredients.addView(view);
         }
 
         if(meal.strIngredient20!=null && !meal.strIngredient20.isEmpty()){
             View view= LayoutInflater.from(MealActivity.this).inflate(R.layout.ingredient_item,null,false);
             TextView name=view.findViewById(R.id.name);
-            name.setText(meal.strIngredient20);
+            name.setText(meal.strIngredient20+"-"+meal.strMeasure20);
             binding.ingredients.addView(view);
         }
 

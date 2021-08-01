@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import com.ayan.foodycookbook.Adapters.SearchResultsAdapter;
 import com.ayan.foodycookbook.Application.FoodyCookApplicationClass;
 import com.ayan.foodycookbook.LoadingComplete;
+import com.ayan.foodycookbook.MealActivity;
 import com.ayan.foodycookbook.Model.Meal;
 import com.ayan.foodycookbook.R;
 import com.ayan.foodycookbook.ViewModels.MainFragmentViewModel;
@@ -31,6 +33,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +41,11 @@ import java.util.List;
 public class MainFragment extends Fragment {
     MainFragmentViewModel viewModel;
     SearchResultsAdapter adapter;
-    static MainFragment mainFragment=null;
     LoadingComplete loadingComplete;
-
+    Meal meal;
     public MainFragment(LoadingComplete loadingComplete) {
-       this.loadingComplete=loadingComplete;
+        this.loadingComplete=loadingComplete;
+
     }
     FragmentMainBinding binding;
     public MainFragment(){
@@ -62,11 +65,20 @@ public class MainFragment extends Fragment {
         FoodyCookApplicationClass applicationClass=(FoodyCookApplicationClass)getActivity().getApplication();
         applicationClass.fragment=1;
         viewModel= new ViewModelProvider(this).get(MainFragmentViewModel.class);
+        if(loadingComplete!=null){
+            viewModel.loadingComplete=loadingComplete;
+        }
         adapter=new SearchResultsAdapter(getContext(),new ArrayList());
 
         binding.mealsRecyclerView.setAdapter(adapter);
         binding.mealsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.mealsRecyclerView.setHasFixedSize(false);
+        binding.randomImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         binding.search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -78,11 +90,8 @@ public class MainFragment extends Fragment {
                 if(count!=0){
 
                     binding.mealsRecyclerView.setVisibility(View.VISIBLE);
-                    List<Meal> meals=viewModel.getSearchResults(s.toString()).getValue();
-                    if(meals!=null){
-                        adapter=new SearchResultsAdapter(getContext(),meals);
-                        binding.mealsRecyclerView.setAdapter(adapter);
-                    }
+                    viewModel.searchKeyword(s.toString());
+
                 }else{
                     binding.mealsRecyclerView.setVisibility(View.GONE);
                 }
@@ -93,10 +102,27 @@ public class MainFragment extends Fragment {
 
             }
         });
+        viewModel.getSearchResults().observe(getViewLifecycleOwner(),
+                new Observer<List<Meal>>() {
+                    @Override
+                    public void onChanged(List<Meal> meals) {
+                        if(meals!=null){
+                            adapter=new SearchResultsAdapter(getContext(),meals);
+                            binding.mealsRecyclerView.setAdapter(adapter);
+                        }
+                    }
+                });
         if(applicationClass.meal==null){
             viewModel.getRandomMeal().observe(getActivity(),randomMeal->{
                 if(randomMeal.size()!=0){
-                    loadingComplete.onLoadingComplete();
+                    binding.randomImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String mealString= new Gson().toJson(randomMeal.get(0));
+                            startActivity(new Intent(getContext(), MealActivity.class).putExtra("meal",mealString));
+                        }
+                    });
+                    viewModel.loadingComplete.onLoadingComplete();
                 }
                 applicationClass.meal=randomMeal.get(0);
                 binding.origin.setText(randomMeal.get(0).strArea);
@@ -130,8 +156,15 @@ public class MainFragment extends Fragment {
                 binding.dishTitle.setText(randomMeal.get(0).strMeal);
             });
         }else{
-                loadingComplete.onLoadingComplete();
+                viewModel.loadingComplete.onLoadingComplete();
             Meal meal=applicationClass.meal;
+            binding.randomImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String mealString= new Gson().toJson(meal);
+                    startActivity(new Intent(getContext(), MealActivity.class).putExtra("meal",mealString));
+                }
+            });
                 binding.origin.setText(meal.strArea);
                 binding.type.setText(meal.strCategory);
                 Glide.with(getContext())
@@ -166,10 +199,4 @@ public class MainFragment extends Fragment {
         return binding.getRoot();
     }
 
-    public static MainFragment getInstance(LoadingComplete loadingComplete){
-        if(mainFragment==null){
-            mainFragment=new MainFragment(loadingComplete);
-        }
-        return mainFragment;
-    }
 }

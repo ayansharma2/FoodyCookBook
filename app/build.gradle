@@ -79,4 +79,6 @@ dependencies {
     implementation "androidx.room:room-paging:2.4.0-alpha04"
 
 
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }

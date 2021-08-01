@@ -8,11 +8,15 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.ActionBar;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.ayan.foodycookbook.Application.FoodyCookApplicationClass;
 import com.ayan.foodycookbook.Dialog.ExitDialog;
@@ -108,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements LoadingComplete, 
     @Override
     public void onBackPressed() {
         ExitDialog ed=new ExitDialog(this,this);
+        ed.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        int width = (int)(getResources().getDisplayMetrics().widthPixels*0.60);
+        ed.getWindow().setLayout((int) (getWindowManager().getCurrentWindowMetrics().getBounds().width()*0.5),
+                WindowManager.LayoutParams.WRAP_CONTENT);
         ed.show();
     }
 

@@ -5,9 +5,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Meal{
-   @NonNull
-   @PrimaryKey public String idMeal;
+public class Meal {
+    @NonNull
+    @PrimaryKey
+    public String idMeal;
     public String strMeal;
     public String strCategory;
     public String strArea;
@@ -34,6 +35,25 @@ public class Meal{
     public String strIngredient18;
     public String strIngredient19;
     public String strIngredient20;
-
+    public String strMeasure1;
+    public String strMeasure2;
+    public String strMeasure3;
+    public String strMeasure4;
+    public String strMeasure5;
+    public String strMeasure6;
+    public String strMeasure7;
+    public String strMeasure8;
+    public String strMeasure9;
+    public String strMeasure10;
+    public String strMeasure11;
+    public String strMeasure12;
+    public String strMeasure13;
+    public String strMeasure14;
+    public String strMeasure15;
+    public String strMeasure16;
+    public String strMeasure17;
+    public String strMeasure18;
+    public String strMeasure19;
+    public String strMeasure20;
 
 }
